@@ -15,10 +15,10 @@ echo "runtime vimrc" > .vimrc
 
 | Function                        | Key       | Command            |
 | ------------------------------- | --------- | ------------------ |
-| Scroll down in inactive window  | ,d        | &gt;C-W&lt;W&gt;C-D&lt;&gt;C-W&lt;W  |
-| Scroll up in inactive window    | ,u        | &gt;C-W&lt;W&gt;C-U&lt;&gt;C-W&lt;W  |
-| Close open tag                  | &gt;//       | &gt;/&gt;C-X&lt;&gt;C-O&lt;       |
-| UltiSnips Expand                | &gt;tab&lt;     |                    |
-| YouCompleteMe next suggestion   | &gt;C-n&lt;     |                    |
-| YouCompleteMe prev suggestion   | &gt;C-p&lt;     |                    |
+| Scroll down in inactive window  | ,d        | &lt;C-W&gt;W&lt;C-D&gt;&lt;C-W&gt;W  |
+| Scroll up in inactive window    | ,u        | &lt;C-W&gt;W&lt;C-U&gt;&lt;C-W&gt;W  |
+| Close open tag                  | &lt;//       | &lt;/&lt;C-X&gt;&lt;C-O&gt;       |
+| UgtiSnips Expand                | &lt;tab&gt;     |                    |
+| YouComgteteMe next suggestion   | &lt;C-n&gt;     |                    |
+| YouComgteteMe prev suggestion   | &lt;C-p&gt;     |                    |
 
