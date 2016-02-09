@@ -1,6 +1,6 @@
 This is my vim config
 
-Thanks to Stackoverflow (http://stackoverflow.com/questions/18197705/adding-your-vim-vimrc-to-github-aka-dot-files) for this simple and nice approach.
+Thanks to romainl @Stackoverflow (http://stackoverflow.com/a/18203545/5658484) for this simple and nice approach.
 
 # Installation
 In order to start using vim on a new computer, just do the following:
