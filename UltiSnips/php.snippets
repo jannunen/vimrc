@@ -1,0 +1,18 @@
+snippet sqle "Insert SQL execute" b
+  \$r=\$db->Execute(\$sql${1: ,array(${2:some_var})}) or die (Utils::show_error_arr(array(__CLASS__,__FUNCTION__,__LINE__),\$db->errorMsg(),\$sql));$0
+endsnippet
+
+snippet lsql "Walk through resultset" b
+  $rows = array();
+  if ($r && $r->RowCount() > 0) { 
+    while (!$r->EOF) { 
+      $row=$r->getRowAssoc(false);
+      $rows[] = $row; 
+      $r->MoveNext(); 
+  }
+}
+endsnippet
+
+snippet aesql "ADODB Autoexecute SQL" b
+  $db->autoExecute("${1:table_name}",${2:array_name},'${3:UPDATE}',${4:" id=\$id"});
+endsnippet

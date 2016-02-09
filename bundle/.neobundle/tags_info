@@ -1,0 +1,9 @@
+ctrlp.vim
+neobundle.vim
+powerline
+ultisnips
+vim-airline
+vim-colorschemes
+vim-fugitive
+vim-php-dictionary
+vimshell
