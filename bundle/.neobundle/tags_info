@@ -1,6 +1,7 @@
 ctrlp.vim
 neobundle.vim
 powerline
+screen
 ultisnips
 vim-airline
 vim-colorschemes

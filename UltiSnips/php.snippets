@@ -11,8 +11,51 @@ snippet lsql "Walk through resultset" b
       $r->MoveNext(); 
   }
 }
+$0
 endsnippet
 
 snippet aesql "ADODB Autoexecute SQL" b
-  $db->autoExecute("${1:table_name}",${2:array_name},'${3:UPDATE}',${4:" id=\$id"});
+$db->autoExecute("${1:table_name}",${2:array_name},'${3:UPDATE}',${4:" id=\$id"});
 endsnippet
+
+snippet smrfs "Smarty fetch string" 
+$smarty->fetch("string:##${1:text_to_insert}##");
+endsnippet	
+
+snippet smrf "Smarty fetch template file" 
+$smarty->fetch('${1:template.tpl}');
+endsnippet	
+
+snippet smrt "Smarty Singleton get" b
+$smarty = Singleton::getSmarty();
+endsnippet  
+
+snippet globals "Globals" b
+global $db,$tbl_prefix,$askey,$memcached,$def_db;
+endsnippet
+
+snippet ifsql "If row exists" b
+if ($r && $r->RowCount() > 0) {
+  $0
+endsnippet
+
+snippet rr "Return rows" b
+return $rows;
+endsnippet
+
+snippet ra "Return associative array" b
+$row = $r->getRowAssoc(false);
+endsnippet
+
+snippet dbce "Database close and exit" b
+$db->Close();exit();
+endsnippet
+
+snippet ddb "db debug" b
+$db->debug=true;
+endsnippet
+
+snippet smra "Smarty assign" b
+$smarty->assign('${1:varname}',${2:\$var});
+endsnippet
+

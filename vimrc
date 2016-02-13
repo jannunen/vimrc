@@ -35,7 +35,7 @@ NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 NeoBundle 'nishigori/vim-php-dictionary'
 NeoBundle 'SirVer/ultisnips'
-
+NeoBundle 'ervandew/screen'
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
 
@@ -44,6 +44,8 @@ call neobundle#end()
 
 " Required:
 filetype plugin indent on
+filetype indent on
+set shiftwidth=2
 
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
@@ -65,10 +67,11 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline_powerline_fonts = 1
 
 " Airline configuration ends ---------------------------
-" PHP mode settings
+" PHP mode settings and search settings
 set ignorecase
 set smartcase
 set incsearch
+set so=999 
 
 " Ultisnippet
 " If you want :UltiSnipsEdit to split your window.
@@ -113,3 +116,5 @@ let g:ycm_key_list_previous_completion=[]
 
 " Tabstops
 :set softtabstop=4 shiftwidth=4 expandtab
+
+
