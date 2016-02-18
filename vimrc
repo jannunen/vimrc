@@ -36,16 +36,14 @@ NeoBundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 NeoBundle 'nishigori/vim-php-dictionary'
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'ervandew/screen'
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'nathanaelkane/vim-indent-guides'
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
 
 " Required:
 call neobundle#end()
 
-" Required:
-filetype plugin indent on
-filetype indent on
-set shiftwidth=2
 
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
@@ -59,7 +57,7 @@ let g:airline_theme='molokai'
 let g:airline#extensions#tabline#enabled = 1
 
 " Show just the filename
-"let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#fnamemod = ':t'
 "let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 
@@ -95,7 +93,7 @@ let g:indentLine_noConcealCursor=1
 :nmap ,u <C-W>W<C-U><C-W>W
 
 " Add tag closing
-:iabbrev <// </<C-X><C-O>
+" :iabbrev <// </<C-X><C-O>
 
 " Syntastic
 set statusline+=%#warningmsg#
@@ -106,6 +104,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_tpl_tidy_exec = 'tidy5'
 let g:syntastic_html_tidy_exec = 'tidy5'
 let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
 let g:syntastic_php_phpcs_args='--tab-width=0'
@@ -115,6 +114,14 @@ let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
 
 " Tabstops
-:set softtabstop=4 shiftwidth=4 expandtab
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+filetype plugin indent on
 
+
+" Smarty file type
+au BufRead,BufNewFile *.tpl set filetype=smarty 
+au Filetype smarty exec('set dictionary=/home/jannunen/.vim/syntax/smarty.vim') 
+au Filetype smarty set complete+=k
 

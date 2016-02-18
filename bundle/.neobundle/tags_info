@@ -6,5 +6,7 @@ ultisnips
 vim-airline
 vim-colorschemes
 vim-fugitive
+vim-indent-guides
+vim-javascript
 vim-php-dictionary
 vimshell
