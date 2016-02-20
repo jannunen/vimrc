@@ -18,10 +18,10 @@ if &compatible
 endif
 
 " Required:
-set runtimepath^=/home/jannunen/.vim/bundle/neobundle.vim/
+set runtimepath^=/Users/jannunen/.vim/bundle/neobundle.vim/
 
 " Required:
-call neobundle#begin(expand('/home/jannunen/.vim/bundle'))
+call neobundle#begin(expand('/Users/jannunen/.vim/bundle'))
 
 " Let NeoBundle manage NeoBundle
 " Required:
@@ -29,9 +29,11 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Add or remove your Bundles here:
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'Valloric/YouCompleteMe'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'vim-airline/vim-airline'
+NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 NeoBundle 'nishigori/vim-php-dictionary'
 NeoBundle 'SirVer/ultisnips'
@@ -122,6 +124,15 @@ filetype plugin indent on
 
 " Smarty file type
 au BufRead,BufNewFile *.tpl set filetype=smarty 
-au Filetype smarty exec('set dictionary=/home/jannunen/.vim/syntax/smarty.vim') 
+au Filetype smarty exec('set dictionary=/Users/jannunen/.vim/syntax/smarty.vim') 
 au Filetype smarty set complete+=k
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" OPEN FILES IN DIRECTORY OF CURRENT FILE
+" """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+cnoremap <expr> %% expand('%:h').'/'
+map <leader>e :edit %%
+map <leader>v :view %%
+
+set t_Co=256
+syntax on
