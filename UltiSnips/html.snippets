@@ -1,0 +1,11 @@
+snippet i18n "i18n gettext" i
+{"${1:${VISUAL:Text}}"|gettext}$0
+endsnippet
+
+snippet resolve_path "Create resolve path smarty plugin code" i
+{resolve_path navi="${1:path_to_resolve}" lang=$active_language}"
+endsnippet
+
+snippet link_path_resolve "Create resolve path smarty plugin code" i
+<a href="{resolve_path navi="${1:path_to_resolve}" lang=$active_language}">{"${2:Page name}"|gettext}</a>$0
+endsnippet
