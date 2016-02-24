@@ -40,6 +40,7 @@ NeoBundle 'SirVer/ultisnips'
 NeoBundle 'ervandew/screen'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'tpope/vim-surround'
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
 
@@ -123,9 +124,7 @@ filetype plugin indent on
 
 
 " Smarty file type
-au BufRead,BufNewFile *.tpl set filetype=smarty 
-au Filetype smarty exec('set dictionary=/Users/jannunen/.vim/syntax/smarty.vim') 
-au Filetype smarty set complete+=k
+au BufRead,BufNewFile *.tpl set filetype=html
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " OPEN FILES IN DIRECTORY OF CURRENT FILE
@@ -136,3 +135,5 @@ map <leader>v :view %%
 
 set t_Co=256
 syntax on
+
+
