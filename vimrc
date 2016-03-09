@@ -41,6 +41,10 @@ NeoBundle 'ervandew/screen'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'tpope/vim-surround'
+NeoBundle 'valloric/MatchTagAlways'
+NeoBundle 'mattn/emmet-vim'
+NeoBundle 'mtth/scratch.vim'
+"NeoBundle 'takeiteasy/tabline-powerline.vim'
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
 
@@ -55,14 +59,16 @@ NeoBundleCheck
 
 " Airline configuration -----------------------------
 "
-let g:airline_theme='molokai'
+"let g:airline_theme='molokai'
 " Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
 
 " Show just the filename
 let g:airline#extensions#tabline#fnamemod = ':t'
-"let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#tab_nr_type = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " Enable powerline fonts
 let g:airline_powerline_fonts = 1
@@ -136,4 +142,11 @@ map <leader>v :view %%
 set t_Co=256
 syntax on
 
+" MatchTagsAlways
+let g:mta_use_matchparen_group = 1
 
+" Add row numbering
+set number
+
+" Set vim to make no swapfiles.
+set noswapfile
