@@ -11,6 +11,7 @@ execute pathogen#infect()
 " Taglist
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
+runtime macros/matchit.vim
 
 "NeoBundle Scripts-----------------------------
 if &compatible
@@ -18,10 +19,10 @@ if &compatible
 endif
 
 " Required:
-set runtimepath^=/Users/jannunen/.vim/bundle/neobundle.vim/
+set runtimepath^=/home/jannunen/.vim/bundle/neobundle.vim/
 
 " Required:
-call neobundle#begin(expand('/Users/jannunen/.vim/bundle'))
+call neobundle#begin(expand('/home/jannunen/.vim/bundle'))
 
 " Let NeoBundle manage NeoBundle
 " Required:
@@ -44,6 +45,7 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'valloric/MatchTagAlways'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'mtth/scratch.vim'
+NeoBundle 'craigemery/vim-autotag'
 "NeoBundle 'takeiteasy/tabline-powerline.vim'
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
@@ -98,8 +100,10 @@ let g:indentLine_indentLevel=7
 let g:indentLine_noConcealCursor=1
 
 " Configure scrolling inactive window up and down
-:nmap ,d <C-W>W<C-D><C-W>W
-:nmap ,u <C-W>W<C-U><C-W>W
+nmap ,d <C-W>W<C-D><C-W>W
+nmap ,u <C-W>W<C-U><C-W>W
+nmap <a-j> <c-w>w<c-e><c-w>w
+nmap <a-k> <c-w>w<c-y><c-w>w
 
 " Add tag closing
 " :iabbrev <// </<C-X><C-O>
@@ -150,3 +154,6 @@ set number
 
 " Set vim to make no swapfiles.
 set noswapfile
+
+" ,cd changes to file directory
+nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
