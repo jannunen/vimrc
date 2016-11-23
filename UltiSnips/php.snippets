@@ -31,7 +31,7 @@ $smarty = Singleton::getSmarty();
 endsnippet  
 
 snippet globals "Globals" b
-global $db,$tbl_prefix,$askey,$memcached,$def_db;
+global $db,$tbl_prefix,$askey,$ic,$def_db;
 endsnippet
 
 snippet ifsql "If row exists" b
@@ -51,17 +51,38 @@ snippet dbce "Database close and exit" b
 $db->Close();exit();
 endsnippet
 
-snippet ddb "db debug" b
+snippet dbd "db debug" b
 $db->debug=true;
 endsnippet
 
 snippet smra "Smarty assign" b
-$smarty->assign('${1:varname}',${2:\$var});
+$smarty->assign('${1:varname}',\$$1);
 endsnippet
 
 snippet mc "Get memcaced" b
 $mc = Singleton::getMemcached();
 endsnippet
+
+snippet gic "Get phpfastcache" i 
+global $ic;
+endsnippet
+
+snippet icdel "delete phpfastcache key" i
+$ic->deleteItem($key);
+endsnippet
+
+
+snippet ific "Get phpfastcache key" b
+$cached = $ic->getItem($key);
+if ($cached->get()==null) {
+  $0
+  $cached->set($rows)->expiresAfter($GLOBALS['ic_expiremedium']);
+  $ic->save($cached);
+} else {
+  $rows = $cached->get();
+}
+endsnippet
+
 
 snippet ifmc "Get memacched key" b
 $key = $def_db."${1:key}";
@@ -81,3 +102,6 @@ snippet mdel "Memcached delete" b
 $mc->delete($key);
 endsnippet
 
+snippet keyc "Keychanged" i
+$key = $this->keyChanged("${1:class::func}",array('${2:var}'=>${3:val}));
+endsnippet

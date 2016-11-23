@@ -1,6 +1,8 @@
 " My .vimrc
 " Used mainly for PHP, HTML and Javascript work. 
 "
+:source $VIMRUNTIME/macros/matchit.vim
+
 let g:Powerline_symbols = 'fancy'
 set encoding=utf-8
 set t_Co=256
@@ -18,10 +20,10 @@ if &compatible
 endif
 
 " Required:
-set runtimepath^=/Users/jannunen/.vim/bundle/neobundle.vim/
+set runtimepath^=/home/jannunen/.vim/bundle/neobundle.vim/
 
 " Required:
-call neobundle#begin(expand('/Users/jannunen/.vim/bundle'))
+call neobundle#begin(expand('/home/jannunen/.vim/bundle'))
 
 " Let NeoBundle manage NeoBundle
 " Required:
@@ -47,6 +49,10 @@ NeoBundle 'mtth/scratch.vim'
 "NeoBundle 'takeiteasy/tabline-powerline.vim'
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
+NeoBundle 'corntrace/bufexplorer'
+NeoBundle 'ctrlpvim/ctrlp.vim'
+"NeoBundle 'tmhedberg/matchit'
+"NeoBundle 'majutsushi/tagbar'
 
 " Required:
 call neobundle#end()
@@ -135,7 +141,11 @@ au BufRead,BufNewFile *.tpl set filetype=html
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " OPEN FILES IN DIRECTORY OF CURRENT FILE
 " """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let mapleader=","
+
 cnoremap <expr> %% expand('%:h').'/'
+nnoremap <leader>. :CtrlPTag<cr>
+nnoremap <silent> <Leader>b :TagbarToggle<CR>
 map <leader>e :edit %%
 map <leader>v :view %%
 

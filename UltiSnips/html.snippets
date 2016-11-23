@@ -9,3 +9,31 @@ endsnippet
 snippet link_path_resolve "Create resolve path smarty plugin code" i
 <a href="{resolve_path navi="${1:path_to_resolve}" lang=$active_language}">{"${2:Page name}"|gettext}</a>$0
 endsnippet
+
+snippet modal_start "Add modal_start" i
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">${2:title}</h4>
+      </div>
+      <div class="modal-body">
+endsnippet
+
+snippet modal_end "Add modal_end" i
+    </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+endsnippet
+
+snippet dft "date_format date and time" i
+|date_format:"%d.%m.%Y %H:%M"}
+endsnippet
+
+snippet dfd "date_format date" i
+|date_format:"%d.%m.%Y"}
+endsnippet
+
+snippet df "date_format " i
+|date_format:"%d.%m.%Y"}
+endsnippet
+
