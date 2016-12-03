@@ -3,5 +3,14 @@ snippet globals "Inserts common globals" b
 endsnippet
 
 snippet sqle    "Inserts SQL Execute for ADODB" b
-  \$r=\$db->Execute(\$sql${1: ,array(${2:some_var})}) or die (Utils::show_error_arr(array(__CLASS__,__FUNCTION__,__LINE__),\$db->errorMsg(),\$sql));$0
+\$r=\$db->Execute(\$sql${1: ,array(${2:some_var})}) or die (Utils::show_error_arr(array(__CLASS__,__FUNCTION__,__LINE__),\$db->errorMsg(),\$sql));$0
 endsnippet
+
+snippet aexi "Inserts autoexecute insert" b
+\$db->autoExecute("${1:table}",${2:\$row},'INSERT');
+endsnippet
+
+snippet aexu "Inserts autoexecute update" b
+\$db->autoExecute("${1:table}",${2:\$row},'UPDATE'," id = {\$id}");
+endsnippet
+

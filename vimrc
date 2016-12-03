@@ -21,10 +21,10 @@ if &compatible
 endif
 
 " Required:
-set runtimepath^=/home/jannunen/.vim/bundle/neobundle.vim/
+set runtimepath^=/Users/jannunen/.vim/bundle/neobundle.vim/
 
 " Required:
-call neobundle#begin(expand('/home/jannunen/.vim/bundle'))
+call neobundle#begin(expand('/Users/jannunen/.vim/bundle'))
 
 " Let NeoBundle manage NeoBundle
 " Required:
@@ -55,6 +55,8 @@ NeoBundle 'corntrace/bufexplorer'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 "NeoBundle 'tmhedberg/matchit'
 "NeoBundle 'majutsushi/tagbar'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'blueyed/smarty.vim'
 
 " Required:
 call neobundle#end()
@@ -92,7 +94,7 @@ set so=999
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
  
-" let g:UltiSnipsSnippetsDir        = '~/.vim/mysnippets/'
+let g:UltiSnipsSnippetsDir        = '~/.vim/mysnippets/'
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
@@ -110,6 +112,10 @@ nmap ,d <C-W>W<C-D><C-W>W
 nmap ,u <C-W>W<C-U><C-W>W
 nmap <a-j> <c-w>w<c-e><c-w>w
 nmap <a-k> <c-w>w<c-y><c-w>w
+
+map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
+map ,t :tabe <C-R>=expand("%:p:h") . "/" <CR>
+map ,s :split <C-R>=expand("%:p:h") . "/" <CR>
 
 " Add tag closing
 " :iabbrev <// </<C-X><C-O>

@@ -10,6 +10,12 @@ cd
 git clone https://github.com/jannunen/vimrc.git .vim
 echo "runtime vimrc" > .vimrc
 ```
+Remember to change your home directory 
+```
+22: set runtimepath^=/home/jannunen/.vim/bundle/neobundle.vim/
+25: call neobundle#begin(expand('/home/jannunen/.vim/bundle'))
+
+```
 
 # Keybindings
 
