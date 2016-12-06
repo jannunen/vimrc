@@ -57,10 +57,16 @@ NeoBundle 'ctrlpvim/ctrlp.vim'
 "NeoBundle 'majutsushi/tagbar'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'blueyed/smarty.vim'
+NeoBundle 'algotech/ultisnips-php'
+NeoBundle 'tobyS/vmustache'
+NeoBundle 'tobyS/pdv'
 
 " Required:
 call neobundle#end()
 
+"Configure pdv template dir
+let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
+nnoremap <buffer> <C-i> :call pdv#DocumentWithSnip()<CR>
 
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
@@ -173,3 +179,6 @@ set noswapfile
 
 " ,cd changes to file directory
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
+
+set wildmode=longest,list,full
+set wildmenu
