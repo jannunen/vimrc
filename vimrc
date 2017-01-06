@@ -52,7 +52,6 @@ NeoBundle 'craigemery/vim-autotag'
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
 NeoBundle 'corntrace/bufexplorer'
-NeoBundle 'ctrlpvim/ctrlp.vim'
 "NeoBundle 'tmhedberg/matchit'
 "NeoBundle 'majutsushi/tagbar'
 NeoBundle 'scrooloose/nerdtree'
@@ -60,13 +59,19 @@ NeoBundle 'blueyed/smarty.vim'
 NeoBundle 'algotech/ultisnips-php'
 NeoBundle 'tobyS/vmustache'
 NeoBundle 'tobyS/pdv'
-
+NeoBundle 'StanAngeloff/php.vim'
 " Required:
 call neobundle#end()
 
 "Configure pdv template dir
 let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
-nnoremap <buffer> <C-i> :call pdv#DocumentWithSnip()<CR>
+"nnoremap <buffer> <C-i> :call pdv#DocumentWithSnip()<CR>
+inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i 
+nnoremap <C-P> :call PhpDocSingle()<CR> 
+vnoremap <C-P> :call PhpDocRange()<CR> 
+
+set wildignore+=*platforms/*,*/tmp/*,*/bower_components/*,*/vendor/*,*.min.js*,*.so,*.swp,*.zip
+let g:ctrlp_map = '<leader>p'
 
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
@@ -100,7 +105,7 @@ set so=999
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
  
-let g:UltiSnipsSnippetsDir        = '~/.vim/mysnippets/'
+"let g:UltiSnipsSnippetsDir        = '~/.vim/mysnippets/'
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
@@ -112,6 +117,8 @@ let g:indentLine_color_gui='#31373a'
 let g:indentLine_char='│'
 let g:indentLine_indentLevel=7
 let g:indentLine_noConcealCursor=1
+let g:html_indent_script1 = "inc"
+let g:html_indent_style1 = "inc"
 
 " Configure scrolling inactive window up and down
 nmap ,d <C-W>W<C-D><C-W>W

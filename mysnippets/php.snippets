@@ -2,15 +2,23 @@ snippet globals "Inserts common globals" b
         global \$db,\$tbl_prefix,\$askey,\$memcached,\$def_db;
 endsnippet
 
+snippet aexi	"Inserts autoexecute insert" b
+\$db->autoExecute("${1:table}",\$row,'INSERT');
+endsnippet
+
 snippet sqle    "Inserts SQL Execute for ADODB" b
 \$r=\$db->Execute(\$sql${1: ,array(${2:some_var})}) or die (Utils::show_error_arr(array(__CLASS__,__FUNCTION__,__LINE__),\$db->errorMsg(),\$sql));$0
 endsnippet
 
-snippet aexi "Inserts autoexecute insert" b
-\$db->autoExecute("${1:table}",${2:\$row},'INSERT');
-endsnippet
 
 snippet aexu "Inserts autoexecute update" b
-\$db->autoExecute("${1:table}",${2:\$row},'UPDATE'," id = {\$id}");
+\$db->autoExecute("${1:table}",${2:row},'UPDATE'," id = {\$id}");
 endsnippet
 
+snippet bT "Insert begin transtion" b
+\$db->beginTrans();
+endsnippet
+
+snippet cT "Insert commit transtion" b
+\$db->commitTrans();
+endsnippet
