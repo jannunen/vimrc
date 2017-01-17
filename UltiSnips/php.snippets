@@ -123,3 +123,23 @@ endsnippet
 snippet keyc "Keychanged" i
 $key = $this->keyChanged("${1:class::func}",array('${2:var}'=>${3:val}));
 endsnippet
+
+snippet aexi	"Inserts autoexecute insert" b
+\$db->autoExecute("${1:table}",\$row,'INSERT');
+endsnippet
+
+snippet aexu "Inserts autoexecute update" b
+\$db->autoExecute("${1:table}",${2:row},'UPDATE'," id = {\$id}");
+endsnippet
+
+snippet bT "Insert begin transtion" b
+\$db->beginTrans();
+endsnippet
+
+snippet cT "Insert commit transtion" b
+\$db->commitTrans();
+endsnippet
+
+snippet ii "Get db_insert_id" b
+\$id=\$db->insert_id();
+endsnippet
