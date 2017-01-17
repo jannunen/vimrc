@@ -21,10 +21,10 @@ if &compatible
 endif
 
 " Required:
-set runtimepath^=/Users/jannunen/.vim/bundle/neobundle.vim/
+set runtimepath^=/home/jannunen/.vim/bundle/neobundle.vim/
 
 " Required:
-call neobundle#begin(expand('/Users/jannunen/.vim/bundle'))
+call neobundle#begin(expand('/home/jannunen/.vim/bundle'))
 
 " Let NeoBundle manage NeoBundle
 " Required:
@@ -114,6 +114,8 @@ let g:indentLine_indentLevel=7
 let g:indentLine_noConcealCursor=1
 
 " Configure scrolling inactive window up and down
+" ,cd changes to file directory
+nmap ,cd :cd %:p:h<CR>:pwd<CR>
 nmap ,d <C-W>W<C-D><C-W>W
 nmap ,u <C-W>W<C-U><C-W>W
 nmap <a-j> <c-w>w<c-e><c-w>w

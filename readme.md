@@ -3,6 +3,7 @@ This is my vim config
 Thanks to romainl @Stackoverflow (http://stackoverflow.com/a/18203545/5658484) for this simple and nice approach.
 
 # Installation
+
 In order to start using vim on a new computer, just do the following:
 
 ```
@@ -16,6 +17,14 @@ Remember to change your home directory
 25: call neobundle#begin(expand('/home/jannunen/.vim/bundle'))
 
 ```
+
+Then you have to install Neobundle.
+```
+curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > install.sh
+sh ./install.sh
+```
+
+Check that the paths on lines 21 and 24 are correct and pointing to your home directory.
 
 # Keybindings
 

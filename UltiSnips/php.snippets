@@ -98,6 +98,24 @@ snippet mset "Set memcached" b
 $mc->set($key,$rows,3600);
 endsnippet
 
+snippet mc "Get memcaced" b
+$mc = Singleton::getMemcached();
+endsnippet
+
+snippet ifmc "Get memacched key" b
+$key = "${1:key}";
+$rows = $mc->get($key);
+// When this should result an array almost every time, use this...
+if ($mc->getResultCode() == Memcached::RES_NOTFOUND) {
+  $0
+$mc->set($key,$rows,3600);
+}
+endsnippet
+
+snippet mset "Set memcached" b
+$mc->set($key,$rows,3600);
+endsnippet
+
 snippet mdel "Memcached delete" b
 $mc->delete($key);
 endsnippet
