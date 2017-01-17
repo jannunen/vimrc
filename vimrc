@@ -49,6 +49,8 @@ NeoBundle 'mattn/emmet-vim'
 NeoBundle 'mtth/scratch.vim'
 NeoBundle 'craigemery/vim-autotag'
 "NeoBundle 'takeiteasy/tabline-powerline.vim'
+NeoBundle 'takeiteasy/tabline-powerline.vim'
+NeoBundle 'scrooloose/nerdtree.git'
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
 NeoBundle 'corntrace/bufexplorer'

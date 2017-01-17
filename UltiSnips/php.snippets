@@ -13,6 +13,9 @@ snippet lsql "Walk through resultset" b
 }
 $0
 endsnippet
+snippet tpr "Add tbl_prefix" b
+".$tbl_prefix."
+endsnippet
 
 snippet aesql "ADODB Autoexecute SQL" b
 $db->autoExecute("${1:table_name}",${2:array_name},'${3:UPDATE}',${4:" id=\$id"});
@@ -47,7 +50,7 @@ snippet ra "Return associative array" b
 $row = $r->getRowAssoc(false);
 endsnippet
 
-snippet dbce "Database close and exit" b
+snippet dbce "Database close and exit" 
 $db->Close();exit();
 endsnippet
 
@@ -120,6 +123,7 @@ snippet mdel "Memcached delete" b
 $mc->delete($key);
 endsnippet
 
+<<<<<<< Updated upstream
 snippet keyc "Keychanged" i
 $key = $this->keyChanged("${1:class::func}",array('${2:var}'=>${3:val}));
 endsnippet
@@ -142,4 +146,8 @@ endsnippet
 
 snippet ii "Get db_insert_id" b
 \$id=\$db->insert_id();
+snippet ifip "If IP is..." b
+if (Utils::getIP()=="${1:your_ip}") {
+  $0
+}
 endsnippet
