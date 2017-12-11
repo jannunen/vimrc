@@ -62,6 +62,10 @@ NeoBundle 'algotech/ultisnips-php'
 NeoBundle 'tobyS/vmustache'
 NeoBundle 'tobyS/pdv'
 NeoBundle 'StanAngeloff/php.vim'
+NeoBundle 'vimplugin/project.vim'
+NeoBundle 'lvht/phpcd.vim'
+NeoBundle 'vim-scripts/phpfolding.vim'
+
 " Required:
 call neobundle#end()
 
@@ -134,6 +138,12 @@ map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
 map ,t :tabe <C-R>=expand("%:p:h") . "/" <CR>
 map ,s :split <C-R>=expand("%:p:h") . "/" <CR>
 
+" Add session saving/loading
+"Quick write session with F2
+map <F2> :mksession! ~/.vim_session <cr> 
+"And load session with F3
+map <F3> :source ~/.vim_session <cr>
+
 " Add tag closing
 " :iabbrev <// </<C-X><C-O>
 
@@ -193,3 +203,14 @@ nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 
 set wildmode=longest,list,full
 set wildmenu
+
+" Set numbering to hybrid
+:set number relativenumber
+
+:augroup numbertoggle
+:  autocmd!
+:  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+:  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+:augroup END
+ 
+
