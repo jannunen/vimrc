@@ -21,10 +21,10 @@ if &compatible
 endif
 
 " Required:
-set runtimepath^=/home/jannunen/.vim/bundle/neobundle.vim/
+set runtimepath^=/Users/jannunen/.vim/bundle/neobundle.vim/
 
 " Required:
-call neobundle#begin(expand('/home/jannunen/.vim/bundle'))
+call neobundle#begin(expand('/Users/jannunen/.vim/bundle'))
 
 " Let NeoBundle manage NeoBundle
 " Required:
@@ -46,7 +46,7 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'valloric/MatchTagAlways'
 NeoBundle 'mattn/emmet-vim'
-NeoBundle 'mtth/scratch.vim'
+"NeoBundle 'mtth/scratch.vim'
 NeoBundle 'craigemery/vim-autotag'
 "NeoBundle 'takeiteasy/tabline-powerline.vim'
 NeoBundle 'takeiteasy/tabline-powerline.vim'
@@ -65,6 +65,9 @@ NeoBundle 'StanAngeloff/php.vim'
 NeoBundle 'vimplugin/project.vim'
 NeoBundle 'lvht/phpcd.vim'
 NeoBundle 'vim-scripts/phpfolding.vim'
+
+NeoBundle 'pangloss/vim-javascript'  
+NeoBundle 'maxmellon/vim-jsx-pretty'
 
 " Required:
 call neobundle#end()
