@@ -24,6 +24,13 @@ curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.s
 sh ./install.sh
 ```
 
+
+You also have to run composer update to get phpcd running properly
+```
+cd ~/.vim/bundle/phpcd.vim
+composer update
+```
+
 Check that the paths on lines 21 and 24 are correct and pointing to your home directory.
 
 # Keybindings
