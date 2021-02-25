@@ -1,14 +1,18 @@
 snippet sqle "Insert SQL execute" b
-  \$r=\$db->Execute(\$sql${1: ,array(${2:some_var})}) or die (Utils::show_error_arr(array(__CLASS__,__FUNCTION__,__LINE__),\$db->errorMsg(),\$sql));$0
+\$r=\$db->Execute(\$sql${1: ,array(${2:some_var})}) or die (Utils::show_error_arr(array(__CLASS__,__FUNCTION__,__LINE__),\$db->errorMsg(),\$sql));$0
+endsnippet
+
+snippet isset "Adds  isset  for a param" i
+isset(${0:${VISUAL}})
 endsnippet
 
 snippet lsql "Walk through resultset" b
-  $rows = array();
-  if ($r && $r->RowCount() > 0) { 
-    while (!$r->EOF) { 
-      $row=$r->getRowAssoc(false);
-      $rows[] = $row; 
-      $r->MoveNext(); 
+$rows = array();
+if ($r && $r->RowCount() > 0) { 
+  while (!$r->EOF) { 
+    $row=$r->getRowAssoc(false);
+    $rows[] = $row; 
+    $r->MoveNext(); 
   }
 }
 $0
@@ -18,6 +22,20 @@ snippet trans "Add a Translation to backed" b
 Translation::add('${0:${VISUAL}}',['fi'=>'${1:finnish}','en'=>'${2:english}','es'=>'${3:spanish}']);
 $0
 endsnippet
+
+
+snippet doA "Add doAction" b
+function doAction($action,$opt=array()) {
+  global $db,$tbl_prefix,$askey,$memcached,$def_db; 
+  $smarty = Singleton::getSmarty(); 
+  $this->hasAccess();
+  switch ($action) {
+    case '':
+      break;
+  }
+} // function
+endsnippet
+
 
 snippet tpr "Add tbl_prefix" b
 ".$tbl_prefix."
@@ -49,7 +67,7 @@ endsnippet
 
 snippet ifsql "If row exists" b
 if ($r && $r->RowCount() > 0) {
-  $0
+$0
 endsnippet
 
 snippet rr "Return rows" b

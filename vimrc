@@ -3,7 +3,7 @@
 "
 :source $VIMRUNTIME/macros/matchit.vim
 
-let g:Powerline_symbols = 'fancy'
+"let g:Powerline_symbols = 'fancy'
 set encoding=utf-8
 set t_Co=256
 set fillchars+=stl:\ ,stlnc:\
@@ -15,6 +15,10 @@ execute pathogen#infect()
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 runtime macros/matchit.vim
+autocmd FileType php set keywordprg=pman
+
+ set undofile " Maintain undo history between sessions
+ set undodir=~/.vim/undodir
 
 "NeoBundle Scripts-----------------------------
 if &compatible
@@ -33,14 +37,16 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Add or remove your Bundles here:
 NeoBundle 'leafOfTree/vim-vue-plugin'
+NeoBundle 'jvanja/vim-bootstrap4-snippets'
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'posva/vim-vue'
+NeoBundle 'tpope/vim-repeat'
 NeoBundle 'Valloric/YouCompleteMe'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'
-NeoBundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-NeoBundle 'nishigori/vim-php-dictionary'
+"NeoBundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'ervandew/screen'
 NeoBundle 'pangloss/vim-javascript'
@@ -48,27 +54,18 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'valloric/MatchTagAlways'
 NeoBundle 'mattn/emmet-vim'
-"NeoBundle 'mtth/scratch.vim'
 NeoBundle 'craigemery/vim-autotag'
 "NeoBundle 'takeiteasy/tabline-powerline.vim'
-NeoBundle 'takeiteasy/tabline-powerline.vim'
 NeoBundle 'scrooloose/nerdtree.git'
-" You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
 NeoBundle 'corntrace/bufexplorer'
-"NeoBundle 'tmhedberg/matchit'
-"NeoBundle 'majutsushi/tagbar'
-"NeoBundle 'scrooloose/nerdtree.git'
+NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'blueyed/smarty.vim'
 NeoBundle 'algotech/ultisnips-php'
 NeoBundle 'tobyS/vmustache'
-NeoBundle 'tobyS/pdv'
-NeoBundle 'StanAngeloff/php.vim'
 NeoBundle 'vimplugin/project.vim'
 NeoBundle 'lvht/phpcd.vim'
 NeoBundle 'vim-scripts/phpfolding.vim'
-NeoBundle 'tpope/vim-repeat'
-
 NeoBundle 'pangloss/vim-javascript'  
 NeoBundle 'maxmellon/vim-jsx-pretty'
 NeoBundle 'maksimr/vim-jsbeautify'
@@ -89,13 +86,22 @@ autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 "Configure pdv template dir
 let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
 "nnoremap <buffer> <C-i> :call pdv#DocumentWithSnip()<CR>
-inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i 
-nnoremap <C-P> :call PhpDocSingle()<CR> 
-vnoremap <C-P> :call PhpDocRange()<CR> 
 
-set wildignore+=*public/*,node_modules/*,*.git/*,*platforms/*,*/tmp/*,*/bower_components/*,*/vendor/*,*.min.js*,*.so,*.swp,*.zip
+set wildignore+=*platforms/*,*/tmp/*,*/node_modules/*,*/templates_c/*,*/bower_components/*,*/vendor/*,*.min.js*,*.so,*.swp,*.zip
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
+  \ }
 let g:ctrlp_map = '<leader>p'
 let g:ctrlp_cmd = 'CtrlPMRU'
+nnoremap <leader>h <C-w>h
+nnoremap <leader>j <C-w>j
+nnoremap <leader>k <C-w>k
+nnoremap <leader>l <C-w>l
+
+
 
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
@@ -116,7 +122,7 @@ let g:airline#extensions#tabline#tab_nr_type = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " Enable powerline fonts
-let g:airline_powerline_fonts = 1
+"let g:airline_powerline_fonts = 1
 
 " Airline configuration ends ---------------------------
 " PHP mode settings and search settings
@@ -124,6 +130,15 @@ set ignorecase
 set smartcase
 set incsearch
 set so=999 
+
+
+" This is for matching those chars normally vim does not match
+for char in [ '_', '.', ':', ',', ';', '<bar>', '/', '<bslash>', '#', '*', '+', '%' ]
+    execute 'xnoremap i' . char . ' :<C-u>normal! T' . char . 'vt' . char . '<CR>'
+    execute 'onoremap i' . char . ' :normal vi' . char . '<CR>'
+    execute 'xnoremap a' . char . ' :<C-u>normal! F' . char . 'vf' . char . '<CR>'
+    execute 'onoremap a' . char . ' :normal va' . char . '<CR>'
+endfor
 
 " Ultisnippet
 " If you want :UltiSnipsEdit to split your window.
@@ -235,3 +250,4 @@ silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
  
 colo monokain
 
+colo monokain
