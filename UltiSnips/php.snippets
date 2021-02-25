@@ -13,6 +13,12 @@ snippet lsql "Walk through resultset" b
 }
 $0
 endsnippet
+
+snippet trans "Add a Translation to backed" b
+Translation::add('${0:${VISUAL}}',['fi'=>'${1:finnish}','en'=>'${2:english}','es'=>'${3:spanish}']);
+$0
+endsnippet
+
 snippet tpr "Add tbl_prefix" b
 ".$tbl_prefix."
 endsnippet
@@ -28,6 +34,10 @@ endsnippet
 snippet smrf "Smarty fetch template file" 
 $smarty->fetch('${1:template.tpl}');
 endsnippet	
+
+snippet mpdf "MPDF Singleton get" b
+$mpdf = Singleton::getMPDF();
+endsnippet  
 
 snippet smrt "Smarty Singleton get" b
 $smarty = Singleton::getSmarty();
