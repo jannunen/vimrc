@@ -24,6 +24,12 @@ curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.s
 sh ./install.sh
 ```
 
+Then you have to install YouCompleteME.
+```
+cd ~/.vim/bundle/YouCompleteMe
+./install.py --clang-completer --js-completer
+```
+
 Check that the paths on lines 21 and 24 are correct and pointing to your home directory.
 
 # Keybindings
