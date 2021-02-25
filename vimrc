@@ -9,6 +9,7 @@ set t_Co=256
 set fillchars+=stl:\ ,stlnc:\
 set term=xterm-256color
 set termencoding=utf-8
+set cursorline
 execute pathogen#infect()
 " Taglist
 filetype plugin on
@@ -21,16 +22,17 @@ if &compatible
 endif
 
 " Required:
-set runtimepath^=/Users/jannunen/.vim/bundle/neobundle.vim/
+set runtimepath^=/home/jannunen/.vim/bundle/neobundle.vim/
 
 " Required:
-call neobundle#begin(expand('/Users/jannunen/.vim/bundle'))
+call neobundle#begin(expand('/home/jannunen/.vim/bundle'))
 
 " Let NeoBundle manage NeoBundle
 " Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Add or remove your Bundles here:
+NeoBundle 'leafOfTree/vim-vue-plugin'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'Valloric/YouCompleteMe'
 NeoBundle 'ctrlpvim/ctrlp.vim'
@@ -56,7 +58,7 @@ NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
 NeoBundle 'corntrace/bufexplorer'
 "NeoBundle 'tmhedberg/matchit'
 "NeoBundle 'majutsushi/tagbar'
-NeoBundle 'scrooloose/nerdtree'
+"NeoBundle 'scrooloose/nerdtree.git'
 NeoBundle 'blueyed/smarty.vim'
 NeoBundle 'algotech/ultisnips-php'
 NeoBundle 'tobyS/vmustache'
@@ -65,12 +67,24 @@ NeoBundle 'StanAngeloff/php.vim'
 NeoBundle 'vimplugin/project.vim'
 NeoBundle 'lvht/phpcd.vim'
 NeoBundle 'vim-scripts/phpfolding.vim'
+NeoBundle 'tpope/vim-repeat'
 
 NeoBundle 'pangloss/vim-javascript'  
 NeoBundle 'maxmellon/vim-jsx-pretty'
+NeoBundle 'maksimr/vim-jsbeautify'
+"NeoBundle 'mscrooloose/nerdcommenter'
 
 " Required:
 call neobundle#end()
+
+
+
+" Configure JS Beautify
+autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
+autocmd FileType json vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
+autocmd FileType jsx vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
+autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
+autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 
 "Configure pdv template dir
 let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
@@ -79,8 +93,9 @@ inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i
 nnoremap <C-P> :call PhpDocSingle()<CR> 
 vnoremap <C-P> :call PhpDocRange()<CR> 
 
-set wildignore+=*platforms/*,*/tmp/*,*/bower_components/*,*/vendor/*,*.min.js*,*.so,*.swp,*.zip
+set wildignore+=*public/*,node_modules/*,*.git/*,*platforms/*,*/tmp/*,*/bower_components/*,*/vendor/*,*.min.js*,*.so,*.swp,*.zip
 let g:ctrlp_map = '<leader>p'
+let g:ctrlp_cmd = 'CtrlPMRU'
 
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
@@ -215,5 +230,8 @@ set wildmenu
 :  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
 :  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 :augroup END
+
+silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
  
+colo monokain
 
