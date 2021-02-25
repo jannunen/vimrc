@@ -28,6 +28,11 @@ Then you have to install YouCompleteME.
 ```
 cd ~/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer --js-completer
+
+You also have to run composer update to get phpcd running properly
+```
+cd ~/.vim/bundle/phpcd.vim
+composer update
 ```
 
 Check that the paths on lines 21 and 24 are correct and pointing to your home directory.
