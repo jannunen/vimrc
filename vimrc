@@ -42,11 +42,16 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'posva/vim-vue'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'Valloric/YouCompleteMe'
+NeoBundle 'zxqfl/tabnine-vim'
+NeoBundle 'posva/vim-vue'
+NeoBundle 'tpope/vim-fugitive'
+"NeoBundle 'Valloric/YouCompleteMe'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'
 "NeoBundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+NeoBundle 'nishigori/vim-php-dictionary'
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'ervandew/screen'
 NeoBundle 'pangloss/vim-javascript'
@@ -248,6 +253,5 @@ set wildmenu
 
 silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
  
-colo monokain
 
-colo monokain
+colo seoul256
