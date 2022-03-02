@@ -38,6 +38,10 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Add or remove your Bundles here:
 NeoBundle 'leafOfTree/vim-vue-plugin'
 NeoBundle 'jvanja/vim-bootstrap4-snippets'
+NeoBundle 'morhetz/gruvbox'
+NeoBundle 'NLKNguyen/papercolor-theme'
+
+
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'posva/vim-vue'
 NeoBundle 'tpope/vim-repeat'
@@ -179,7 +183,7 @@ map <F2> :mksession! ~/.vim_session <cr>
 map <F3> :source ~/.vim_session <cr>
 
 " Add tag closing
-" :iabbrev <// </<C-X><C-O>
+:iabbrev <// </<C-X><C-O>
 
 " Syntastic
 set statusline+=%#warningmsg#
@@ -250,4 +254,6 @@ set wildmenu
 silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
  
 
-colo seoul256
+"colo seoul256
+set background=dark
+colorscheme PaperColor
